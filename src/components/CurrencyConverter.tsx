@@ -1,9 +1,5 @@
 import Head from 'next/head'
 
 export default function CurrencyConverter() {
-  return (
-    <h1>
-      Currency Converter
-    </h1>
-  )
+  return <h1>Currency Converter</h1>
 }

@@ -1,7 +1,6 @@
 import Head from 'next/head'
 
-import CurrencyConverter from '../components/CurrencyConverter'
-
+import CurrencyConverter from '../src/components/CurrencyConverter'
 
 export default function index() {
   return (
