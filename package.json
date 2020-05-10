@@ -7,9 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "tslint -c tslint.json -t stylish --fix src/**/*.{ts,tsx}",
-    "prettier": "prettier -c src"
+    "prettier": "prettier -c src",
+    "test": "jest"
   },
   "dependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/chai-jest-snapshot": "^1.3.5",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "classnames": "^2.2.6",
     "immutable": "^4.0.0-rc.12",
     "next": "9.3.6",
@@ -19,19 +24,43 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/jest": "^25.2.1",
     "@types/node": "^13.13.5",
     "@types/react": "^16.9.34",
     "@types/uuid": "^7.0.3",
+    "chai": "^4.2.0",
+    "chai-enzyme": "^1.0.0-beta.1",
+    "chai-jest-snapshot": "^2.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^26.0.1",
+    "jest-css-modules": "^2.1.0",
     "prettier": "^2.0.5",
-    "typescript": "^3.8.3",
+    "ts-jest": "^25.5.1",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^5.0.0"
+    "tslint-react": "^5.0.0",
+    "typescript": "^3.8.3"
   },
   "prettier": {
     "singleQuote": true,
     "semi": false,
     "trailingComma": "es5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "\\.(css|sass)$": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "setupFiles": [
+      "<rootDir>/test/setup.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
+    }
   }
 }

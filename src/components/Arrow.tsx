@@ -1,3 +1,5 @@
+import React from 'react'
+
 import styles from '../styles/Arrow.module.css'
 
 export default function Arrow() {
