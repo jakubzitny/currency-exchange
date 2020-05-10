@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "tslint -c tslint.json -t stylish --fix {pages,src}/**/*.{ts,tsx}",
+    "lint": "tslint -c tslint.json -t stylish --fix src/**/*.{ts,tsx}",
     "prettier": "prettier -c src"
   },
   "dependencies": {
