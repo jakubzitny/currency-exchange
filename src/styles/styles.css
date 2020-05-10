@@ -6,9 +6,11 @@ main {
   padding: 0;
   margin: 0;
   height: 100vh;
+  font-family: Helvetica, sans-serif;
+  font-style: normal;
 }
 
 :root {
-  --main-color: rgb(92, 92, 218);
-  --main-color-highlight: blue;
+  --main-color: rgb(100, 100, 198);
+  --main-color-highlight: rgb(90, 90, 158);
 }
