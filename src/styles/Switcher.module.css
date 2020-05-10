@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--main-color-highlight);
+}
+
+.containerTarget {
+  background-color: var(--main-color);
+}
+
+.switchDot {
+  width: 6px;
+  height: 6px;
+  margin: 20px 5px;
+  border-radius: 6px;
+
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.switchDotActive {
+  background-color: white;
+}
