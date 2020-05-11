@@ -49,29 +49,14 @@ const WalletsView: React.FC<Props> = (props: Props) => {
   }, [props.rate])
 
   const handleSourceAmountChange = (amount: number) => {
-    const exchangeAmount = amount
     const exchangedAmount = roundAmount(amount * props.rate)
-
-    setAmountState({
-      exchangeAmount,
-      exchangedAmount,
-    })
+    setAmountState({ exchangeAmount: amount, exchangedAmount })
   }
 
   const handleTargetAmountChange = (amount: number) => {
     const exchangeAmount = roundAmount(amount / props.rate)
-    const exchangedAmount = amount
-
-    setAmountState({
-      exchangeAmount,
-      exchangedAmount,
-    })
+    setAmountState({ exchangeAmount, exchangedAmount: amount })
   }
-
-  // const handleTargetWalletChange = (currency: Currency) => {
-  //   // handleSourceAmountChange(amountState.exchangeAmount)
-  //   props.onTargetWalletChange(currency)
-  // }
 
   return (
     <div className={styles.container}>
