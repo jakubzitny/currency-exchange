@@ -22,6 +22,7 @@ Exchange currencies live like you would do in your Revolut app. Try it [live](ht
 - [Next.js](https://nextjs.org/) (with [SWR](https://swr.now.sh/))
 - Prettier, TSLint
 - Jest (with Jest Snapshots), Chai, Sinon
+- Exchange rates are polled from [exchangeratesapi.io](https://exchangeratesapi.io/)
 
 
 ### Development
