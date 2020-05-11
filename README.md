@@ -1,5 +1,7 @@
 # Currency exchange app
 
+![build](https://github.com/jakubzitny/currency-exchange/workflows/build/badge.svg)
+
 Exchange currencies live like you would do in your Revolut app. Try it [live](https://currency-exchange.jakubzitny.now.sh/).
 
 ![demo](https://user-images.githubusercontent.com/3315662/81607806-924c1c00-93d5-11ea-859a-fb4f5111efd5.gif)
