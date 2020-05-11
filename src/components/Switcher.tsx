@@ -1,3 +1,4 @@
+import React from 'react'
 import classNames from 'classnames'
 import { List } from 'immutable'
 import { v4 } from 'uuid'
@@ -32,7 +33,8 @@ export default function Switcher(props: Props) {
         <div
           key={v4()}
           className={classNames(styles.switchDot, {
-            [styles.switchDotActive]: wallet.get('currency') === props.activeWallet,
+            [styles.switchDotActive]:
+              wallet.get('currency') === props.activeWallet,
           })}
           onClick={handleSwitchClick.bind(null, wallet.get('currency'))}
         />

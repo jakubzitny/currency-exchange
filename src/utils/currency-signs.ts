@@ -12,6 +12,4 @@ export function getCurrencySymbol(currency: Currency) {
   if (currency === 'EUR') {
     return '€'
   }
-
-  return ''
 }

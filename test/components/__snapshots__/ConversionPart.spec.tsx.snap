@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversionPart should render source ConversionPart 1`] = `ShallowWrapper {}`;
+
+exports[`ConversionPart should render target ConversionPart 1`] = `ShallowWrapper {}`;

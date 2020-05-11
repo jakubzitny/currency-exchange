@@ -7,7 +7,7 @@ import { Currency } from '../entities/currency'
 
 import styles from '../styles/ConversionPart.module.css'
 
-interface Props {
+type Props = {
   currency: Currency
   exchangeAmount: number
   walletAmount: number
@@ -43,11 +43,10 @@ const ConversionPart: React.FC<Props> = (props: Props) => {
           {props.walletAmount}
         </div>
         {props.type === 'target' && (
-        // {props.type && (
           <div className={styles.rate}>
             {getCurrencySymbol(props.currency)}1 ={' '}
             {getCurrencySymbol(props.rateCurrency)}
-            {roundAmount(props.type === 'target' ? 1/rate : rate)}
+            {roundAmount(props.type === 'target' ? 1 / rate : rate)}
           </div>
         )}
       </div>

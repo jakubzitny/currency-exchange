@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WalletView should render source WalletView 1`] = `ShallowWrapper {}`;
+
+exports[`WalletView should render target WalletView 1`] = `ShallowWrapper {}`;

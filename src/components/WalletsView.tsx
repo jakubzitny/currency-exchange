@@ -68,10 +68,10 @@ const WalletsView: React.FC<Props> = (props: Props) => {
     })
   }
 
-  const handleTargetWalletChange = (currency: Currency) => {
-    // handleSourceAmountChange(amountState.exchangeAmount)
-    props.onTargetWalletChange(currency)
-  }
+  // const handleTargetWalletChange = (currency: Currency) => {
+  //   // handleSourceAmountChange(amountState.exchangeAmount)
+  //   props.onTargetWalletChange(currency)
+  // }
 
   return (
     <div className={styles.container}>

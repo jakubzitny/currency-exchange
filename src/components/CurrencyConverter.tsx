@@ -14,7 +14,7 @@ const API_REFRESH_INTERVAL = 10000
 
 const fetcher = async (key: string) => {
   const response = await fetch(`${API_URL}${key}`)
-  return await response.json()
+  return response.json()
 }
 
 const CurrencyConverter: React.FC<{}> = () => {
@@ -31,24 +31,24 @@ const CurrencyConverter: React.FC<{}> = () => {
   })
 
   useEffect(() => {
-    const rate = data && data.rates && data.rates[targetWalletCurrency]
-    if (!rate) {
+    const nextRate = data && data.rates && data.rates[targetWalletCurrency]
+    if (!nextRate) {
       return
     }
 
     setState((prevState) => ({
       ...prevState,
-      rate,
+      rate: nextRate,
     }))
   }, [data])
 
   const handleSourceWalletCurrencyChange = (currency: Currency) => {
     setState((prevState) => {
-      const rate =
+      const nextRate =
         sourceWalletCurrency === currency ? prevState.rate : 1 / prevState.rate
       return {
         ...prevState,
-        rate,
+        rate: nextRate,
         sourceWalletCurrency: currency,
       }
     })
@@ -56,11 +56,11 @@ const CurrencyConverter: React.FC<{}> = () => {
 
   const handleTargetWalletCurrencyChange = (currency: Currency) => {
     setState((prevState) => {
-      const rate =
+      const nextRate =
         (data && data.rates && data.rates[currency]) || prevState.rate
       return {
         ...prevState,
-        rate,
+        rate: nextRate,
         targetWalletCurrency: currency,
       }
     })

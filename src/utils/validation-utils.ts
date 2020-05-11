@@ -9,8 +9,6 @@ export function validateAmount(amount: string) {
     return false
   }
 
-  // TODO: jedna bodka, ponechat bodku
-
   return roundAmount(parsedAmount)
 }
 
