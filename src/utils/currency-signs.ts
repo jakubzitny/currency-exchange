@@ -1,4 +1,4 @@
-export type Currency = 'USD' | 'GBP' | 'EUR'
+import { Currency } from '../entities/currency'
 
 export function getCurrencySymbol(currency: Currency) {
   if (currency === 'USD') {

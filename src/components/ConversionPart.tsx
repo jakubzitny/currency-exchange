@@ -1,19 +1,25 @@
 import classNames from 'classnames'
+import React, { useState } from 'react'
 
-import { Currency, getCurrencySymbol } from '../utils/currency-signs'
+import { getCurrencySymbol } from '../utils/currency-signs'
+import { roundAmount } from '../utils/validation-utils'
+import { Currency } from '../entities/currency'
 
 import styles from '../styles/ConversionPart.module.css'
 
-type Props = {
+interface Props {
   currency: Currency
   exchangeAmount: number
   walletAmount: number
   rate: number
   rateCurrency: Currency
   type: 'source' | 'target'
+  onAmountChangeRequest: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function ConversionPart(props: Props) {
+const ConversionPart: React.FC<Props> = (props: Props) => {
+  const { rate } = props
+
   return (
     <div
       className={classNames(styles.container, {
@@ -23,8 +29,11 @@ export default function ConversionPart(props: Props) {
       <div className={styles.exchangeInfo}>
         <div className={styles.exchangeInfoCurrency}>{props.currency}</div>
         <div className={styles.exchangeInfoAmount}>
-          {props.type === 'source' ? '-' : ''}
-          {props.exchangeAmount}
+          <input
+            className={styles.input}
+            value={props.exchangeAmount}
+            onChange={props.onAmountChangeRequest}
+          />
         </div>
       </div>
 
@@ -34,13 +43,16 @@ export default function ConversionPart(props: Props) {
           {props.walletAmount}
         </div>
         {props.type === 'target' && (
+        // {props.type && (
           <div className={styles.rate}>
             {getCurrencySymbol(props.currency)}1 ={' '}
             {getCurrencySymbol(props.rateCurrency)}
-            {props.rate}
+            {roundAmount(props.type === 'target' ? 1/rate : rate)}
           </div>
         )}
       </div>
     </div>
   )
 }
+
+export default ConversionPart
