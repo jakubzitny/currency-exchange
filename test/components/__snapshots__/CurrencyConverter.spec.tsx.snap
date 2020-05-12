@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CurrencyConverter should fully render CurrencyConverter 1`] = `ReactWrapper {}`;
+
 exports[`CurrencyConverter should render CurrencyConverter 1`] = `ShallowWrapper {}`;

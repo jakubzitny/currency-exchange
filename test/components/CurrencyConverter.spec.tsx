@@ -1,7 +1,8 @@
 import chai, { expect } from 'chai'
 import chaiJestSnapshot from 'chai-jest-snapshot'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 
 import CurrencyConverter from '../../src/components/CurrencyConverter'
 
@@ -13,5 +14,14 @@ describe('CurrencyConverter', () => {
     const wrapper = shallow(arrow)
 
     expect(wrapper).to.matchSnapshot()
+  })
+
+  it('should fully render CurrencyConverter', (callback) => {
+    const arrow = <CurrencyConverter />
+    act(() => {
+      const wrapper = mount(arrow)
+      expect(wrapper).to.matchSnapshot()
+      callback()
+    })
   })
 })
