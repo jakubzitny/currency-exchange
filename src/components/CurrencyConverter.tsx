@@ -68,12 +68,24 @@ const CurrencyConverter: React.FC<{}> = () => {
 
   return (
     <WalletsProvider>
-      {({ wallets }: { wallets: List<Wallet> }) => (
+      {({
+        wallets,
+        onAmountChange,
+      }: {
+        wallets: List<Wallet>
+        onAmountChange: (
+          sourceCurrency: Currency,
+          targetCurrency: Currency,
+          sourceAmount: number,
+          targetAmount: number
+        ) => void
+      }) => (
         <WalletsView
           rate={rate}
           wallets={wallets}
           sourceWalletCurrency={sourceWalletCurrency}
           targetWalletCurrency={targetWalletCurrency}
+          onAmountChange={onAmountChange}
           onSourceWalletChange={handleSourceWalletCurrencyChange}
           onTargetWalletChange={handleTargetWalletCurrencyChange}
         />

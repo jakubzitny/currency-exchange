@@ -22,6 +22,7 @@ describe('WalletsView', () => {
       wallets: List.of(wallet, wallet2),
       sourceWalletCurrency: Currency.EUR,
       targetWalletCurrency: Currency.USD,
+      onAmountChange: () => {},
       onSourceWalletChange: () => {},
       onTargetWalletChange: () => {},
     }

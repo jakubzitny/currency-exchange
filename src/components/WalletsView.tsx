@@ -1,4 +1,5 @@
 import { List } from 'immutable'
+import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
 import useSWR from 'swr'
 
@@ -15,6 +16,12 @@ type Props = {
   wallets: List<Wallet>
   sourceWalletCurrency: Currency
   targetWalletCurrency: Currency
+  onAmountChange: (
+    sourceCurrency: Currency,
+    targetCurrency: Currency,
+    sourceAmount: number,
+    targetAmount: number
+  ) => void
   onSourceWalletChange: (currency: Currency) => void
   onTargetWalletChange: (currency: Currency) => void
 }
@@ -58,6 +65,15 @@ const WalletsView: React.FC<Props> = (props: Props) => {
     setAmountState({ exchangeAmount, exchangedAmount: amount })
   }
 
+  const handleConversion = () => {
+    props.onAmountChange(
+      sourceWallet.get('currency'),
+      targetWallet.get('currency'),
+      amountState.exchangeAmount,
+      amountState.exchangedAmount
+    )
+  }
+
   return (
     <div className={styles.container}>
       <WalletView
@@ -81,6 +97,16 @@ const WalletsView: React.FC<Props> = (props: Props) => {
         onAmountChange={handleTargetAmountChange}
         onWalletChange={props.onTargetWalletChange}
       />
+      <button
+        className={classNames(styles.button, {
+          [styles.buttonDisabled]:
+            sourceWallet.amount < amountState.exchangeAmount,
+        })}
+        disabled={sourceWallet.amount < amountState.exchangeAmount}
+        onClick={handleConversion}
+      >
+        EXCHANGE
+      </button>
     </div>
   )
 }
