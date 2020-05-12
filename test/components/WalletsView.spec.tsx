@@ -15,7 +15,7 @@ chai.use(chaiSinon)
 
 describe('WalletsView', () => {
   const createWalletsView = (props: Object = {}) => {
-    const wallet = new Wallet({ currency: Currency.EUR, amount: 0 })
+    const wallet = new Wallet({ currency: Currency.EUR, amount: 500 })
     const wallet2 = new Wallet({ currency: Currency.USD, amount: 0 })
     const defaultProps = {
       rate: 1,
@@ -93,5 +93,20 @@ describe('WalletsView', () => {
 
     expect(updatedSourceWalletViewProps.exchangeAmount).to.equal(62.5)
     expect(updatedTargetWalletViewProps.exchangeAmount).to.equal(50)
+  })
+
+  it('should handle exchange button click', () => {
+    const onAmountChange = spy()
+    const rate = 1.5
+    const wrapper = createWalletsView({ rate, onAmountChange })
+
+    wrapper.find('button').simulate('click')
+
+    expect(onAmountChange).to.have.been.calledOnceWith(
+      Currency.EUR,
+      Currency.USD,
+      50, // defaults
+      75
+    )
   })
 })
