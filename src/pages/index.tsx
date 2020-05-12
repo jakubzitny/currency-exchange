@@ -10,7 +10,7 @@ export default function index() {
         <title>Currency Converter</title>
         <link rel="icon" href="/favicon.png" />
         <script
-          async
+          async={true}
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
         />
         <script
